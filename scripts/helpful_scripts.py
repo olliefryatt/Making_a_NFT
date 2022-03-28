@@ -17,10 +17,18 @@ BREED_MAPPING = {0: "PUG", 1: "SHIBA_INU", 2: "ST_BERNARD"}
 
 
 def get_breed(breed_number):
+    """
+    Takes a numeric inputs & returns a string saying what the nft is 
+    """
     return BREED_MAPPING[breed_number]
 
 
 def get_account(index=None, id=None):
+    """
+    Returns the account (wallet/address) to use. 
+    Looks at if we are wroking with local or test net & returns correct account
+    arg = none necessary
+    """
     if index:
         return accounts[index]
     if network.show_active() in LOCAL_BLOCKCHAIN_ENVIRONMENTS:
@@ -85,6 +93,10 @@ def deploy_mocks():
 def fund_with_link(
     contract_address, account=None, link_token=None, amount=Web3.toWei(0.3, "ether")
 ):
+    """
+    Funds an address with Link, necessary to get random number from chainlink.
+    Arg: address to fund
+    """
     account = account if account else get_account()
     link_token = link_token if link_token else get_contract("link_token")
     funding_tx = link_token.transfer(contract_address, amount, {"from": account})

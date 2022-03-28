@@ -1,9 +1,14 @@
 from scripts.helpful_scripts import get_account, OPENSEA_URL
 from brownie import SimpleCollectible
 
+# nore more details on setting up IPFS in advanced collectible deployment script
 sample_token_uri = "https://ipfs.io/ipfs/Qmd9MCGtdVz2miNumBHDbvj8bigSgTwnr4SbyH6DNnpWdt?filename=0-PUG.json"
 
 def deploy_and_create():
+    """
+    Deployes our smart contract & then engages with it to create a NFT
+    Arg = none
+    """
     account = get_account()
     simple_collectible = SimpleCollectible.deploy({"from": account})
     tx = simple_collectible.createCollectible(sample_token_uri, {"from": account})

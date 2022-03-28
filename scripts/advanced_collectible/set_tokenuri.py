@@ -9,6 +9,11 @@ dog_metadata_dic = {
 }
 
 def main():
+    """
+    Check's to see if NFT has a URI set, if so stops, if not calls set_tokenURI function
+    Note needs ipfs node running or pinata to have uri linked to an actual imaged
+    Arg: none
+    """
     print(f"Working on {network.show_active()}")
     # Engage with lattest version of the smart contract
     advanced_collectible = AdvancedCollectible[-1]
@@ -27,11 +32,12 @@ def main():
 
 # This set
 def set_tokenURI(token_id, nft_contract, tokenURI):
+    """
+    Set a URI for our NFTs and does this on chain. Should be run with main() funtion
+    """
     account = get_account()
     # Set token URI is funtion in our smart contract, advanced collectible
     tx = nft_contract.setTokenURI(token_id, tokenURI, {"from": account})
     tx.wait(1)
-    print(
-        f"Awesome! You can view your NFT at {OPENSEA_URL.format(nft_contract.address, token_id)}"
-    )
+    print(f"Awesome! You can view your NFT at {OPENSEA_URL.format(nft_contract.address, token_id)}")
     print("Please wait up to 20 minutes, and hit the refresh metadata button")
