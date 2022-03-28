@@ -1,8 +1,8 @@
-**About this project**
+# About this project 
 
 This repo makes two types of NFTs. a "Simple Collectible" and a "Advanced collectible". 
 
-**Dependencies**
+## Dependencies**
 
 • Brownie & Ganahce CLI
 • Working with Rinkyeby, need test eth
@@ -11,13 +11,13 @@ This repo makes two types of NFTs. a "Simple Collectible" and a "Advanced collec
     - Importnat we have a 2nd shell runningt our ipfs node
 • Pinata, we will use their service to pin NFT image (in case we turn of local node) set up https://www.pinata.cloud/
 
-**Simple collectible**
+## Simple collectible**
 
 This is the easyiest means to have an a NFT. It does not contain any metadata.
 • 1st Set up SimpleCollectible.sol this is based upon the Openzepplin ERC721 contract. 
 • 2nd set out "deploy_and_create.py" script. 
 
-**Advanced collectible**
+## Advanced collectible**
 
 1st Set up IPFS node to host image on. 
 > $ ipfs daemon
@@ -34,11 +34,13 @@ Currently the NFTs have no data behind them. Thus we need to set all their speci
 > create_metadata.py
 
 5th, Set the token uri to assign a specific image.
->> "set_tokenuri.py"
+> "set_tokenuri.py"
 
 Finished. We now have several NFTs with their metadata.
 
-**.env should contain**
+## .env should contain**
+
+Set up env file with the following
 
 PRIVATE_KEY=______
 WEB3_INFURA_PROJECT_ID=______
